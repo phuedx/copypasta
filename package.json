@@ -1,0 +1,16 @@
+{
+  "name": "copypasta",
+  "version": "0.0.1",
+  "main": "main.js",
+  "author": "Sam Smith <me@samsmith.io>",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "^9.9.1"
+  },
+  "devDependencies": {
+    "standard": "^8.6.0"
+  },
+  "scripts": {
+    "test": "standard"
+  }
+}
