@@ -5,7 +5,9 @@
   "author": "Sam Smith <me@samsmith.io>",
   "license": "MIT",
   "dependencies": {
-    "jsdom": "^9.9.1"
+    "electron-clipboard-watcher": "^1.0.1",
+    "jsdom": "^9.9.1",
+    "zen-observable": "^0.4.0"
   },
   "devDependencies": {
     "standard": "^8.6.0"
