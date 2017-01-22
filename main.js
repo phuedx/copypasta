@@ -1,4 +1,4 @@
-const { app, globalShortcut, clipboard } = require('electron')
+const { app, globalShortcut, clipboard, shell } = require('electron')
 
 const doodads = require('./src/doodads')
 
@@ -18,6 +18,7 @@ app.on('ready', () => {
     if (doodad) {
       doodad.doodad(text)
         .then(clipboard.writeHTML)
+        .then(shell.beep)
     } else {
       console.log(`Can't find a doodad that can doodad "${text}"`)
     }
