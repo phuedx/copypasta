@@ -1,26 +1,28 @@
-const { app, globalShortcut, clipboard, shell } = require('electron')
+const { app, clipboard, shell } = require('electron')
+const observableClipboard = require('./src/observable-clipboard')
 
 const doodads = require('./src/doodads')
 
 app.on('ready', () => {
-  globalShortcut.register('CommandOrControl+Shift+C', () => {
-    let text = clipboard.readText()
-    let doodad
+  observableClipboard.subscribe({
+    next (text) {
+      let doodad
 
-    for (let i = 0; i < doodads.length; ++i) {
-      if (doodads[i].can(text)) {
-        doodad = doodads[i]
+      for (let i = 0; i < doodads.length; ++i) {
+        if (doodads[i].can(text)) {
+          doodad = doodads[i]
 
-        break
+          break
+        }
       }
-    }
 
-    if (doodad) {
-      doodad.doodad(text)
-        .then(clipboard.writeHTML)
-        .then(shell.beep)
-    } else {
-      console.log(`Can't find a doodad that can doodad "${text}"`)
+      if (doodad) {
+        doodad.doodad(text)
+          .then(clipboard.writeHTML)
+          .then(shell.beep)
+      } else {
+        console.log(`Can't find a doodad that can doodad "${text}"`)
+      }
     }
   })
 })
