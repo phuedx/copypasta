@@ -4,6 +4,15 @@ const observableClipboard = require('./src/observable-clipboard')
 const log = require('./src/log')
 const doodads = require('./src/doodads')
 
+/**
+ * Notifies the user that the clipboard's text has been modified.
+ */
+function notifyUser () {
+  shell.beep()
+
+  app.dock.bounce('informational')
+}
+
 app.on('ready', () => {
   log.info('Ready...')
 
@@ -27,7 +36,7 @@ app.on('ready', () => {
 
         doodad.doodad(text)
           .then(clipboard.writeHTML)
-          .then(shell.beep)
+          .then(notifyUser)
       } else {
         log.info(`Couldn't find a doodad for "${text}"`)
       }
