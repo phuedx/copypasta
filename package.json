@@ -12,9 +12,13 @@
     "zen-observable": "^0.4.0"
   },
   "devDependencies": {
+    "electron": "^1.4.15",
+    "electron-packager": "^8.5.0",
     "standard": "^8.6.0"
   },
   "scripts": {
-    "test": "standard"
+    "test": "standard",
+    "dist:dev": "electron-packager . --platform darwin",
+    "dist:prod": "npm run dist:dev -- --ignore DEBUG"
   }
 }
