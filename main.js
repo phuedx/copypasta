@@ -1,7 +1,7 @@
 const { app, clipboard, shell } = require('electron')
-const log = require('electron-log')
 
 const observableClipboard = require('./src/observable-clipboard')
+const log = require('./src/log')
 const doodads = require('./src/doodads')
 
 app.on('ready', () => {
