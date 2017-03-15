@@ -18,7 +18,7 @@
   },
   "scripts": {
     "test": "standard",
-    "dist:dev": "electron-packager . --platform darwin",
+    "dist:dev": "electron-packager . --platform darwin,linux,win32 --arch x64",
     "dist:prod": "npm run dist:dev -- --ignore DEBUG"
   }
 }
