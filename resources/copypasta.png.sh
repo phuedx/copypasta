@@ -15,7 +15,7 @@ node -e "\
 
 # Equivalent to
 #
-#   rsvg-convert --format=png --output="$__dirname/copypasta.png" "$__dirname/copypasta.svg"
-rsvg-convert "$__dirname/copypasta.svg" > "$__dirname/copypasta.png"
+#   rsvg-convert --format=png --output="${__dirname}/copypasta.png" "${__dirname}/copypasta.svg"
+rsvg-convert "${__dirname}/copypasta.svg" > "${__dirname}/copypasta.png"
 
-rm "$__dirname/copypasta.svg"
+rm "${__dirname}/copypasta.svg"
